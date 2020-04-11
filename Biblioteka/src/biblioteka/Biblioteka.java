@@ -26,6 +26,13 @@ public class Biblioteka implements BibliotekaInterfejs {
 	 * Lista sa knjigama iz biblioteke.
 	 */
 	private List<Knjiga> knjige = new ArrayList<Knjiga>();
+	
+	
+
+	public Biblioteka(List<Knjiga> knjige) {
+		super();
+		this.knjige = knjige;
+	}
 
 	/**
 	 * Dodaje novu knjigu u biblioteku. Knjiga se dodaje na kraj liste knjiga.

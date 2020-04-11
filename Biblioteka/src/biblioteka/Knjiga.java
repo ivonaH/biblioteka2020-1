@@ -36,6 +36,17 @@ public class Knjiga {
 	 */
 	private int izdanje;
 	
+	
+	
+	public Knjiga(String naslov, String isbn, LinkedList<Autor> autori, String izdavac, int izdanje) {
+		super();
+		this.naslov = naslov;
+		this.isbn = isbn;
+		this.autori = autori;
+		this.izdavac = izdavac;
+		this.izdanje = izdanje;
+	}
+
 	/**
 	 * Vraca naslov knjige.
 	 * 

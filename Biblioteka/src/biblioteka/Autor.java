@@ -27,6 +27,16 @@ public class Autor {
 		return ime;
 	}
 	
+	
+	
+	public Autor(String ime, String prezime) {
+		super();
+		this.ime = ime;
+		this.prezime = prezime;
+	}
+
+
+
 	/**
 	 * Postavlja novo ime autora.
 	 * 
