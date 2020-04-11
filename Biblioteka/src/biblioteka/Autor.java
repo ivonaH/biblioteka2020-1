@@ -8,6 +8,9 @@ package biblioteka;
  */
 public class Autor {
 	
+	public Autor() {
+	}
+	
 	/**
 	 * Ime autora
 	 */

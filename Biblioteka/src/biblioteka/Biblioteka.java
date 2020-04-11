@@ -1,6 +1,5 @@
 package biblioteka;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,6 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import biblioteka.interfejs.BibliotekaInterfejs;
@@ -33,7 +33,9 @@ public class Biblioteka implements BibliotekaInterfejs {
 		super();
 		this.knjige = knjige;
 	}
-
+public Biblioteka() {
+}
+	
 	/**
 	 * Dodaje novu knjigu u biblioteku. Knjiga se dodaje na kraj liste knjiga.
 	 * 
@@ -113,7 +115,7 @@ public class Biblioteka implements BibliotekaInterfejs {
 
 	@Override
 	public void sacuvajSve(String nazivFajla) {
-		Gson gson = new Gson();
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try (FileWriter out = new FileWriter(nazivFajla)) {
 			gson.toJson(knjige, out);
 		} catch (IOException e) {
@@ -125,13 +127,14 @@ public class Biblioteka implements BibliotekaInterfejs {
 	public void ucitajSveKnjige(String nazivFajla) {
 		Gson gson = new Gson();
 		try (FileReader in = new FileReader(nazivFajla)) {
-			knjige = null;
 			Type collectionType = new TypeToken<ArrayList<Knjiga>>() {}.getType();
-			knjige = gson.fromJson(nazivFajla, collectionType);
+			knjige = gson.fromJson(in, collectionType);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+
 	}
 
 }

@@ -36,7 +36,8 @@ public class Knjiga {
 	 */
 	private int izdanje;
 	
-	
+	public Knjiga() {
+	}
 	
 	public Knjiga(String naslov, String isbn, LinkedList<Autor> autori, String izdavac, int izdanje) {
 		super();
